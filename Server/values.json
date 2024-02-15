@@ -1,5 +1,6 @@
 {
-    "HOST": "",
-    "PORT": "",
-    "MAX_CLIENTS": 0
+    "HOST": "127.0.0.1",
+    "PORT": 5500,
+    "MAX_CLIENTS": 0,
+    "MAX_REQ_SIZE": 1024
 }
