@@ -6,6 +6,7 @@ PORT = None
 MAX_CLIENTS = None
 MAX_REQ_SIZE = None
 
+chat = [1, 5, 6]
 #Read init values from ./values.json
 with open("values.json", "r") as json_stream:
     val: dict = json.load(json_stream)
@@ -22,4 +23,10 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         while True:
             req = conn.recv(1024)
             if not req: break
-            conn.sendall(req)
+            print(req)
+            req = req.decode()
+            if req == "GET_CHAT":
+                conn.sendall(str(chat).encode("utf-8"))
+
+            else:
+                conn.sendall("Unknown request".encode())
